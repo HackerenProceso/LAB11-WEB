@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resultados</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="mt-5 ml-5">
+    <h2>Resultados</h2>
+	<div class="row">
+	    <div class="col-md-4" th:if="${type == 'primos'}">
+	        <h3>Numeros Primos</h3>
+	        <ul>
+	            <li th:each="primo : ${results}" th:text="${primo}"></li>
+	        </ul>
+	    </div>
+		<div class="col-md-8" th:if="${type == 'primos'}">
+		    <h3>Numeros Primos</h3>
+		    <select class="form-control mr-6" style="width: 8rem;">
+		        <option th:each="primo : ${results}" th:text="${primo}"></option>
+		    </select>
+		</div>
+	
+    <div th:if="${type == 'tabla'}">
+        <h3>Tabla de Multiplicar</h3>
+        <ul>
+            <li th:each="tabla : ${results}" th:utext="${tabla}"></li>
+        </ul>
+    </div>
+    <a href="/" class="btn btn-primary">Volver a la página principal</a>
+</body>
+</html>
